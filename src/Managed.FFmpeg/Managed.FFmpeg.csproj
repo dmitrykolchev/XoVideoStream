@@ -1,0 +1,98 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Managed FFmpeg 8.1.1 package</Title>
+		<Version>8.1.1</Version>
+		<Authors>Dmitry Kolchev</Authors>
+		<Description>Managed FFmpeg 8.1.1 package</Description>
+		<Copyright>2026 Dmitry Kolchev</Copyright>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>FFmpeg;Managed</PackageTags>
+	</PropertyGroup>
+	
+	<Target Name="GenerateAVUtil" BeforeTargets="BeforeBuild" Inputs="gen\avutil.rsp;gen\avformat.rsp;gen\avfilter.rsp;gen\avdevice.rsp;gen\avcodec.rsp;gen\swresample.rsp;gen\swscale.rsp" Outputs="Native\AVUtil.cs;Native\AVFormat.cs;Native\AVFilter.cs;Native\AVDevice.cs;Native\AVCodec.cs;Native\SWResample.cs;Native\SWScale.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avutil.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avformat.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avfilter.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avdevice.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avcodec.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\swresample.rsp" IgnoreExitCode="true" />
+		<Exec Command="ClangSharpPInvokeGenerator @gen\swscale.rsp" IgnoreExitCode="true" />
+		<ItemGroup>
+			<Compile Include="Native\AVUtil.cs" KeepDuplicates="false" />
+			<Compile Include="Native\AVFormat.cs" KeepDuplicates="false" />
+			<Compile Include="Native\AVFilter.cs" KeepDuplicates="false" />
+			<Compile Include="Native\AVDevice.cs" KeepDuplicates="false" />
+			<Compile Include="Native\AVCodec.cs" KeepDuplicates="false" />
+			<Compile Include="Native\SWResample.cs" KeepDuplicates="false" />
+			<Compile Include="Native\SWScale.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	
+	<!--<Target Name="GenerateAVUtil" BeforeTargets="BeforeBuild" Inputs="gen\avutil.rsp" Outputs="Native\AVUtil.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avutil.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\AVUtil.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateAVFormat" BeforeTargets="BeforeBuild" Inputs="gen\avformat.rsp" Outputs="Native\AVFormat.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avformat.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\AVFormat.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateAVFilter" BeforeTargets="BeforeBuild" Inputs="gen\avfilter.rsp" Outputs="Native\AVFilter.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avfilter.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\AVFilter.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateAVDevice" BeforeTargets="BeforeBuild" Inputs="gen\avdevice.rsp" Outputs="Native\AVDevice.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avdevice.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\AVDevice.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateAVCodec" BeforeTargets="BeforeBuild" Inputs="gen\avcodec.rsp" Outputs="Native\AVCodec.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\avcodec.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\AVCodec.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateSWResample" BeforeTargets="BeforeBuild" Inputs="gen\swresample.rsp" Outputs="Native\SWResample.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\swresample.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\SWResample.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>
+
+	<Target Name="GenerateSWScale" BeforeTargets="BeforeBuild" Inputs="gen\swscale.rsp" Outputs="Native\SWScale.cs">
+		<Exec Command="ClangSharpPInvokeGenerator @gen\swscale.rsp" />
+		<ItemGroup>
+			<Compile Include="Native\SWScale.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>-->
+
+	<!--<Target Name="GeneratePostProc" BeforeTargets="BeforeBuild" Inputs="gen\postproc.rsp" Outputs="Native\PostProcess.cs">
+
+		<Message Importance="high" Text="Обнаружены изменения. Запуск ClangSharpPInvokeGenerator..." />
+
+		<Exec Command="ClangSharpPInvokeGenerator @gen\postproc.rsp" />
+
+		<ItemGroup>
+			<Compile Include="Native\PostProcess.cs" KeepDuplicates="false" />
+		</ItemGroup>
+	</Target>-->
+
+</Project>

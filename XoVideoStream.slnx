@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Managed.FFmpeg.native.win-x64/Managed.FFmpeg.native.win-x64.csproj" />
+    <Project Path="src/Managed.FFmpeg/Managed.FFmpeg.csproj" />
+  </Folder>
+  <Folder Name="/src/samples/">
+    <Project Path="src/samples/FFmpeg.Sample/FFmpeg.Sample.csproj" />
+  </Folder>
+</Solution>

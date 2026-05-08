@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>Managed.FFmpeg.native.win_x64</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+		<None Include=".\runtimes\win-x64\native\avcodec-62.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\avcodec-62.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\avdevice-62.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\avdevice-62.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\avfilter-11.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\avfilter-11.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\avformat-62.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\avformat-62.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\avutil-60.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\avutil-60.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\swresample-6.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\swresample-6.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include=".\runtimes\win-x64\native\swscale-9.dll" Condition="'$(Platform)'!='x86'">
+			<Link>win-x64\swscale-9.dll</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>
