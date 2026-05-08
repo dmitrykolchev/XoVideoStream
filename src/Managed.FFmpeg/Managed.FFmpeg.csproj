@@ -12,7 +12,10 @@
 		<Description>Managed FFmpeg 8.1.1 package</Description>
 		<Copyright>2026 Dmitry Kolchev</Copyright>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>FFmpeg;Managed</PackageTags>
+		<PackageTags>FFmpeg;Managed;CSharp</PackageTags>
+		<PackageProjectUrl>https://github.com/dmitrykolchev/XoVideoStream</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/dmitrykolchev/XoVideoStream</RepositoryUrl>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	</PropertyGroup>
 	
 	<Target Name="GenerateAVUtil" BeforeTargets="BeforeBuild" Inputs="gen\avutil.rsp;gen\avformat.rsp;gen\avfilter.rsp;gen\avdevice.rsp;gen\avcodec.rsp;gen\swresample.rsp;gen\swscale.rsp" Outputs="Native\AVUtil.cs;Native\AVFormat.cs;Native\AVFilter.cs;Native\AVDevice.cs;Native\AVCodec.cs;Native\SWResample.cs;Native\SWScale.cs">
@@ -33,6 +36,13 @@
 			<Compile Include="Native\SWScale.cs" KeepDuplicates="false" />
 		</ItemGroup>
 	</Target>
+	
+	<ItemGroup>
+	  <None Include="..\..\LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	
 	<!--<Target Name="GenerateAVUtil" BeforeTargets="BeforeBuild" Inputs="gen\avutil.rsp" Outputs="Native\AVUtil.cs">

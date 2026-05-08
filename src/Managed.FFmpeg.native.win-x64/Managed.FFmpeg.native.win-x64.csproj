@@ -5,6 +5,17 @@
 		<RootNamespace>Managed.FFmpeg.native.win_x64</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>FFmpeg 8.1.1 native binaries for Windows X65</Title>
+		<Version>8.1.1</Version>
+		<Authors>Dmitry Kolchev</Authors>
+		<Description>Managed FFmpeg Package</Description>
+		<Copyright>2026 Dmitry Kolchev</Copyright>
+		<PackageProjectUrl>https://github.com/dmitrykolchev/XoVideoStream</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/dmitrykolchev/XoVideoStream</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>FFmpeg;CSharp;Managed</PackageTags>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
@@ -36,5 +47,12 @@
 			<Link>win-x64\swscale-9.dll</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 </Project>
